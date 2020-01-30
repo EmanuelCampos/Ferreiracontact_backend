@@ -16,5 +16,8 @@ app.use(cors());
 app.use(express.json())
 app.use(routes)
 
-console.log(`Servidor Iniciado`)
-app.listen(3333)
+app.listen(3333).then(function (newResult) {
+  console.log('Servidor Iniciado')
+}).catch((error) => {
+  console.log('Do that' + error);
+})
