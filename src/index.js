@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack:<password>@cluster0-2ono3.mongodb.net/fcontato?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-2ono3.mongodb.net/fcontato?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
