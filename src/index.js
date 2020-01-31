@@ -8,7 +8,6 @@ const app = express();
 
 mongoose.connect('mongodb+srv://omnistack:<password>@cluster0-2ono3.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
 });
 
 
