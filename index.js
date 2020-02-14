@@ -4,14 +4,11 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const routes = require('./src/routes')
 
-require('dotenv').config()
-
+require('dotenv').config();
 
 const app = express();
 
-const URI = process.env.MONGO_DB
-
-mongoose.connect(URI, {
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@ferreirabase-2ono3.mongodb.net/database?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
