@@ -4,9 +4,14 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const routes = require('./src/routes')
 
+require('dotenv').config()
+
+
 const app = express();
 
-mongoose.connect('mongodb+srv://new_admin:new_admin@ferreirabase-2ono3.mongodb.net/database?retryWrites=true&w=majority', {
+const URI = process.env.MONGO_DB
+
+mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -16,7 +21,7 @@ app.use(cors());
 app.use(express.json())
 app.use(routes)
 
-const porta = process.env.PORT || 3333;
+const port = process.env.PORT || 3333;
 
-app.listen(porta)
+app.listen(port)
 console.log('Server Iniciado')
