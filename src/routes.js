@@ -6,19 +6,27 @@ const routes = Router();
 
 routes.get('/users', UserController.index)
 
-routes.get('/users/posts', (req, res) => {
-  const pageCount = Math.ceil(posts.length / 10);
-  let page = parseInt(req.query.p);
-  if (!page) { page = 1; }
-  if (page > pageCount) {
-    page = pageCount
+routes.get('/users', async (req, res) => {
+
+  const match = {}
+
+  if (req.query.published) {
+    match.published = req.query.published === 'true'
   }
-  res.json({
-    "page": page,
-    "pageCount": pageCount,
-    "posts": posts.slice(page * 10 - 10, page * 10)
-  });
-});
+  try {
+    await req.user.populate({
+      path: 'posts',
+      match,
+      options: {
+        limit: parseInt(req.query.limit),
+        skip: parseInt(req.query.skip)
+      }
+    }).execPopulate()
+    res.send(req.user.posts)
+  } catch (error) {
+    res.status(500).send()
+  }
+})
 
 routes.post('/users', UserController.store)
 routes.put('/users', UserController.update)
