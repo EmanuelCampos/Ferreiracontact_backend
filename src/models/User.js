@@ -7,10 +7,7 @@ const UserSchema = new mongoose.Schema({
   country: String,
   email: String,
   phone: String,
-  timestamps: {
-    createdAt: 'created_at'
-  }
-
+  date: { type: Date, default: Date.now },
 })
 UserSchema.plugin(mongoosePaginate);
 
