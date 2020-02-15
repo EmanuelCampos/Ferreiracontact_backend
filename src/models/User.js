@@ -7,6 +7,9 @@ const UserSchema = new mongoose.Schema({
   country: String,
   email: String,
   phone: String,
+  timestamps: {
+    createdAt: 'created_at'
+  }
 
 })
 UserSchema.plugin(mongoosePaginate);
