@@ -22,7 +22,7 @@ module.exports = {
 
     var options = {
       sort: { date: -1 },
-      page: page,
+      page,
       limit: 5
     };
 
