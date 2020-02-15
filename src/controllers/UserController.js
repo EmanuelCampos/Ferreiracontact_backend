@@ -17,7 +17,7 @@ module.exports = {
 
   async index(req, res) {
     const { page = 1 } = req.query
-    const users = await User.paginate({}, { page, limit: 5 }).sort({ datefield: -1 })
+    const users = await User.paginate({}, { page, limit: 5, sort: { date: - 1 } })
 
     return res.json(users)
   },
