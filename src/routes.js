@@ -6,7 +6,7 @@ const routes = Router();
 
 routes.get('/users', UserController.index)
 
-routes.get('/users', async (req, res) => {
+routes.get('/users/', async (req, res) => {
 
   const match = {}
 
