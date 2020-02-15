@@ -18,13 +18,15 @@ module.exports = {
   async index(req, res) {
     const { page = 1 } = req.query
 
+    var query = {}
+
     var options = {
       sort: { date: -1 },
       page: page,
       limit: 5
     };
 
-    const users = await User.paginate({}, options)
+    const users = await User.paginate(query, options)
 
     return res.json(users)
   },
