@@ -16,7 +16,8 @@ module.exports = {
   },
 
   async index(req, res) {
-    const users = await User.find()
+    const { page = 1 } = req.query
+    const users = await User.paginate({}, { page, limit: 5 })
 
     return res.json(users)
   },

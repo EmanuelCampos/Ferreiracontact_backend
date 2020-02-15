@@ -8,7 +8,10 @@ require('dotenv').config();
 
 const app = express();
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@ferreirabase-2ono3.mongodb.net/database?retryWrites=true&w=majority`, {
+//${process.env.MONGO_USER}:
+//${process.env.MONGO_PASS}:
+
+mongoose.connect(`mongodb+srv://new_admin:new_admin@ferreirabase-2ono3.mongodb.net/database?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
